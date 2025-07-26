@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>game </title>
+  <style>
+    body {
+      background-color: rgb(186, 216, 178);
+      color: white;
+      font-family: sans-serif;
+      text-align: center;
+    }
+
+    video {
+      width: 500px;
+      height: 250px;
+      outline: none;
+      border: none;
+    }
+
+    #playButton {
+      display: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-top: 20px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>tamat</h1>
+  <p>Kelompok:</p>
+  
+    <li>Daniel</li>
+    <li>Lionel</li>
+    <li>Nathanael</li>
+    <li>Jericho</li>
+    <li>Ardika</li>
+    <li>Leander</li>
+
+
+  <!-- Hilangkan kontrol dengan tidak menyertakan "controls" -->
+  <video id="vid" src="https://files.catbox.moe/mw26tb.mp4" loop autoplay  playsinline></video>
+  <button id="playButton">Putar Video</button>
+
+  <script>
+    window.addEventListener('load', function () {
+      const video = document.getElementById('vid');
+      const button = document.getElementById('playButton');
+
+      // Coba autoplay dengan suara dimatikan agar tidak diblokir browser
+      video.play().catch(function (error) {
+        console.log("Autoplay gagal:", error);
+        // Tampilkan tombol jika autoplay gagal
+        button.style.display = 'inline-block';
+      });
+
+      button.addEventListener('click', function () {
+        video.muted = false; // Aktifkan suara jika ada
+        video.play();
+        button.style.display = 'none';
+      });
+    });
+  </script>
+  <p>Terima kasih telah bermain!</p>
+  <div>
+    alat: <br>
+   <li>vscode (tempat code nya)</l1> <br>
+   <li>chat gpt (fix bug sama bantu buat fungcion</l1> <br>
+   <li>github(fix bug,bantu buat fungcion,post code)</l1> 
+   <br><li>stack overflow (bantu buat fungcion)</l1> <br>
+  </div>
+  <div>
+   pemograman;
+    <br>
+    <l1>html</l1> <br>
+    <l1>css</l1> <br>
+    <l1>javascript</l1> <br>
+  </div>
+  <style>
+    h5 {
+      color: rgb(0, 34, 11);
+      font-size: 16px;
+      margin-top: 20px;
+      font-style: times;
+    }
+    div {
+      color: rgb(0, 34, 11);
+      font-size: 16px;
+      margin-top: 20px;
+      font-style: times;
+    }
+    p {
+      color: rgb(0, 34, 11);
+      font-size: 16px;
+      margin-top: 20px;
+      font-style: times;
+    }
+  </style>
+</body>
+</html>
