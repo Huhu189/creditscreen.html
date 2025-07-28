@@ -1,175 +1,117 @@
-.<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game - Credit Endscreen</title>
   <style>
     body {
       background-color: rgb(186, 216, 178);
-      color: #333;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      font-family: sans-serif;
       text-align: center;
-      padding: 20px;
-    }
-
-    h1 {
-      color: #2c3e50;
-      margin-bottom: 30px;
     }
 
     video {
-      width: 80%;
-      max-width: 250px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      margin: 20px 0;
+      width: 500px;
+      height: 250px;
+      outline: none;
+      border: none;
     }
 
     #playButton {
       display: none;
-      padding: 12px 24px;
-      font-size: 16px;
-      margin: 20px auto;
-      background-color: #27ae60;
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-top: 20px;
+      background-color: #4caf50;
       color: white;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    #playButton:hover {
-      background-color: #2ecc71;
     }
 
     ul#anggota {
       list-style: none;
       padding: 0;
-      max-width: 400px;
-      margin: 0 auto 30px;
     }
 
     ul#anggota li {
-      margin: 10px auto;
-      padding: 12px;
-      width: 80%;
-      border: 2px solid #27ae60;
+      margin: 8px auto;
+      padding: 10px;
+      width: fit-content;
+      border: 2px solid #4caf50;
       border-radius: 10px;
-      background-color: rgba(255, 255, 255, 0.3);
-      color: #2c3e50;
-      font-weight: 500;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
     }
 
     .githubButton {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 10px;
       background-color: #24292e;
       color: white;
-      padding: 12px 20px;
+      padding: 10px 16px;
       border-radius: 8px;
       text-decoration: none;
-      font-weight: 600;
-      margin: 15px 10px;
-      transition: all 0.3s;
-      width: 220px;
+      font-weight: bold;
+      margin: 10px;
+      transition: background-color 0.3s;
     }
 
     .githubButton:hover {
       background-color: #333;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     .githubButton img {
-      width: 20px;
-      height: 20px;
-    }
-
-    .button-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 30px;
-    }
-
-    footer {
-      margin-top: 40px;
-      color: #7f8c8d;
-      font-size: 14px;
+      width: 24px;
+      height: 24px;
     }
   </style>
 </head>
 <body>
-  <h1>🎮 Permainan Selesai 🎮</h1>
-  <p>Dikembangkan oleh:</p>
-  
+  <h1>Tamat</h1>
+  <p>Kelompok:</p>
   <ul id="anggota">
     <li>Daniel Oktavian C</li>
     <li>Lionel Hernandez</li>
-    <li>Nathanael A</li>
+    <li>Nathanae A</li>
     <li>Jericho Xavier Z</li>
     <li>Michael Ardhika</li>
     <li>Leander Edward</li>
   </ul>
 
-  <video id="vid" src="https://files.catbox.moe/mw26tb.mp4" loop muted playsinline></video>
+  <video id="vid" src="https://files.catbox.moe/mw26tb.mp4" loop autoplay playsinline></video>
   <button id="playButton">Putar Video</button>
 
-  <p>Terima kasih telah bermain!</p>
-
-  <div class="button-container">
-    <!-- Link ke repository utama -->
-    <a href="https://github.com/Huhu189/creditscreen.html" target="_blank" class="githubButton">
-      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
-      Repository penutupan
-    </a>
-    
-    <!-- Link ke file game -->
-    <a href="https://github.com/Huhu189/game.html target="_blank" class="githubButton">
-      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
-      repository game
-    </a>
-    
-    <!-- Link alternatif jika ada GitHub Pages -->
-\
-    </a>
-  </div>
-
-  <footer>
-    © 2023 Tim Pengembangan Game | Dibuat dengan HTML, CSS, dan JavaScript
-  </footer>
-
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    window.addEventListener('load', function () {
       const video = document.getElementById('vid');
       const button = document.getElementById('playButton');
-      
-      // Coba putar video otomatis
-      const playPromise = video.play();
-      
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          console.log("Autoplay dicegah:", error);
-          button.style.display = 'block';
-          video.controls = true;
-        });
-      }
-      
-      button.addEventListener('click', function() {
+
+      video.play().catch(function (error) {
+        console.log("Autoplay gagal:", error);
+        button.style.display = 'inline-block';
+      });
+
+      button.addEventListener('click', function () {
         video.muted = false;
-        video.play()
-          .then(() => {
-            button.style.display = 'none';
-            video.controls = false;
-          })
-          .catch(e => console.log("Gagal memutar:", e));
+        video.play();
+        button.style.display = 'none';
       });
     });
   </script>
+
+  <p>Terima kasih telah bermain!</p>
+
+  <div style="margin-top: 30px;">
+    <a href="https://github.com/Huhu189/creditscreen.html target="_blank" class="githubButton">
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" />
+     web penuntupan repository
+    </a>
+    <a href="https://github.com/Huhu189/game.html target="_blank" class="githubButton">
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" />
+      file html game repository
+    </a> 
+  </div>
 </body>
 </html>
