@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>game </title>
+  <title>Game - Credit Endscreen</title>
   <style>
     body {
       background-color: rgb(186, 216, 178);
@@ -28,22 +29,59 @@
       border-radius: 8px;
       cursor: pointer;
     }
+
+    ul#anggota {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul#anggota li {
+      margin: 8px auto;
+      padding: 10px;
+      width: fit-content;
+      border: 2px solid #4caf50;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    .githubButton {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #24292e;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .githubButton:hover {
+      background-color: #333;
+    }
+
+    .githubButton img {
+      width: 24px;
+      height: 24px;
+    }
   </style>
 </head>
 <body>
-  <h1>tamat</h1>
+  <h1>Tamat</h1>
   <p>Kelompok:</p>
-  
-    <li>Daniel</li>
-    <li>Lionel</li>
-    <li>Nathanael</li>
-    <li>Jericho</li>
-    <li>Ardika</li>
-    <li>Leander</li>
+  <ul id="anggota">
+    <li>Daniel Oktavian C</li>
+    <li>Lionel Hernandez</li>
+    <li>Nathanae A</li>
+    <li>Jericho Xavier Z</li>
+    <li>Michael Ardhika</li>
+    <li>Leander Edward</li>
+  </ul>
 
-
-  <!-- Hilangkan kontrol dengan tidak menyertakan "controls" -->
-  <video id="vid" src="https://files.catbox.moe/mw26tb.mp4" loop autoplay  playsinline></video>
+  <video id="vid" src="https://files.catbox.moe/mw26tb.mp4" loop autoplay playsinline></video>
   <button id="playButton">Putar Video</button>
 
   <script>
@@ -51,54 +89,30 @@
       const video = document.getElementById('vid');
       const button = document.getElementById('playButton');
 
-      // Coba autoplay dengan suara dimatikan agar tidak diblokir browser
       video.play().catch(function (error) {
         console.log("Autoplay gagal:", error);
-        // Tampilkan tombol jika autoplay gagal
         button.style.display = 'inline-block';
       });
 
       button.addEventListener('click', function () {
-        video.muted = false; // Aktifkan suara jika ada
+        video.muted = false;
         video.play();
         button.style.display = 'none';
       });
     });
   </script>
+
   <p>Terima kasih telah bermain!</p>
-  <div>
-    alat: <br>
-   <li>vscode (tempat code nya)</l1> <br>
-   <li>chat gpt (fix bug sama bantu buat fungcion</l1> <br>
-   <li>github(fix bug,bantu buat fungcion,post code)</l1> 
-   <br><li>stack overflow (bantu buat fungcion)</l1> <br>
+
+  <div style="margin-top: 30px;">
+    <a href="https://github.com/Huhu189/creditscreen.html/blob/main/creditendscreen.html" target="_blank" class="githubButton">
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" />
+     web penuntupan repoisitory
+    </a>
+    <a href="https://github.com/Huhu189/game.html" target="_blank" class="githubButton">
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" />
+      file html game repoisitory
+    </a> 
   </div>
-  <div>
-   pemograman;
-    <br>
-    <l1>html</l1> <br>
-    <l1>css</l1> <br>
-    <l1>javascript</l1> <br>
-  </div>
-  <style>
-    h5 {
-      color: rgb(0, 34, 11);
-      font-size: 16px;
-      margin-top: 20px;
-      font-style: times;
-    }
-    div {
-      color: rgb(0, 34, 11);
-      font-size: 16px;
-      margin-top: 20px;
-      font-style: times;
-    }
-    p {
-      color: rgb(0, 34, 11);
-      font-size: 16px;
-      margin-top: 20px;
-      font-style: times;
-    }
-  </style>
 </body>
 </html>
