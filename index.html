@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+.<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game - Credit Endscreen</title>
   <style>
     body {
@@ -117,23 +117,26 @@
     <li>Leander Edward</li>
   </ul>
 
-  <video id="vid" loop muted playsinline>
-    <source src="https://files.catbox.moe/mw26tb.mp4" type="video/mp4" />
-    Browser Anda tidak mendukung pemutar video.
-  </video>
+  <video id="vid" src="https://files.catbox.moe/mw26tb.mp4" loop muted playsinline></video>
   <button id="playButton">Putar Video</button>
 
   <p>Terima kasih telah bermain!</p>
 
   <div class="button-container">
-    <a href="https://github.com/Huhu189/creditscreen" target="_blank" rel="noopener noreferrer" class="githubButton">
-      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo">
-      Repository Credits
+    <!-- Link ke repository utama -->
+    <a href="https://github.com/Huhu189/creditscreen.html" target="_blank" class="githubButton">
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+      Repository penutupan
     </a>
     
-    <a href="https://github.com/Huhu189/game/blob/main/game.html" target="_blank" rel="noopener noreferrer" class="githubButton">
-      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo">
-      Kode Game
+    <!-- Link ke file game -->
+    <a href="https://github.com/Huhu189/game.html target="_blank" class="githubButton">
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+      repository game
+    </a>
+    
+    <!-- Link alternatif jika ada GitHub Pages -->
+\
     </a>
   </div>
 
@@ -142,12 +145,13 @@
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
       const video = document.getElementById('vid');
       const button = document.getElementById('playButton');
-
+      
+      // Coba putar video otomatis
       const playPromise = video.play();
-
+      
       if (playPromise !== undefined) {
         playPromise.catch(error => {
           console.log("Autoplay dicegah:", error);
@@ -155,13 +159,15 @@
           video.controls = true;
         });
       }
-
-      button.addEventListener('click', function () {
+      
+      button.addEventListener('click', function() {
         video.muted = false;
-        video.play().then(() => {
-          button.style.display = 'none';
-          video.controls = false;
-        }).catch(e => console.log("Gagal memutar:", e));
+        video.play()
+          .then(() => {
+            button.style.display = 'none';
+            video.controls = false;
+          })
+          .catch(e => console.log("Gagal memutar:", e));
       });
     });
   </script>
